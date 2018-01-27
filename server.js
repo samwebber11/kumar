@@ -2,6 +2,7 @@ const express=require('express');
 const hbs=require('hbs');
 
 var app=express();
+var port=process.env.PORT || 3000;
 app.set('view engine','hbs');
 hbs.registerPartials(__dirname + '/views/package');
 app.get('/',(req,res) =>
@@ -30,7 +31,7 @@ app.get('/bad',(req,res) =>
     error:'Unable to fetch any data'
   });
 })
-app.listen(3000,() =>
+app.listen(port,() =>
 	{
-		console.log('Server is starting');
+		console.log(`Server ${port} is starting`);
 	});
